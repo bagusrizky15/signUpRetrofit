@@ -1,4 +1,4 @@
-package com.example.signupretrofit
+package com.example.signupretrofit.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

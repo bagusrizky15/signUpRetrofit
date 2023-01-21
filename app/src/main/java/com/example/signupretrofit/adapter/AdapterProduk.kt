@@ -23,7 +23,9 @@ class AdapterProduk(var data: ArrayList<Produk>) : RecyclerView.Adapter<AdapterP
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-
+        holder.tvNama.text = data[position].nama
+        holder.tvHarga.text = data[position].harga
+        holder.imgProduk.setImageResource(data[position].gambar)
     }
 
     override fun getItemCount(): Int {

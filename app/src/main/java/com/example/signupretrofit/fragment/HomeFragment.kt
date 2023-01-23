@@ -17,7 +17,9 @@ import com.example.signupretrofit.model.Produk
 class HomeFragment : Fragment() {
 
     lateinit var vpSlider : ViewPager
-    lateinit var rvProduk: RecyclerView
+    lateinit var rvProdukTerbaru: RecyclerView
+    lateinit var rvProdukTerlaris: RecyclerView
+    lateinit var rvProdukElektronik: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +29,9 @@ class HomeFragment : Fragment() {
         val view : View = inflater.inflate(R.layout.fragment_home, container, false)
 
         vpSlider = view.findViewById(R.id.vp_slider)
-        rvProduk = view.findViewById(R.id.rv_produk)
+        rvProdukTerlaris = view.findViewById(R.id.rv_produk_terlaris)
+        rvProdukTerbaru = view.findViewById(R.id.rv_produk_terbaru)
+        rvProdukElektronik = view.findViewById(R.id.rv_produk_elektronik)
 
         var arrSlider = ArrayList<Int>()
         arrSlider.add(R.drawable.slider1)
@@ -40,13 +44,73 @@ class HomeFragment : Fragment() {
         val layoutManager = LinearLayoutManager(activity)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
-        rvProduk.adapter = AdapterProduk(arrProduk)
-        rvProduk.layoutManager = layoutManager
+        val layoutManager2 = LinearLayoutManager(activity)
+        layoutManager2.orientation = LinearLayoutManager.HORIZONTAL
+
+        val layoutManager3 = LinearLayoutManager(activity)
+        layoutManager3.orientation = LinearLayoutManager.HORIZONTAL
+
+        rvProdukTerlaris.adapter = AdapterProduk(arrProdukTerlaris)
+        rvProdukTerlaris.layoutManager = layoutManager
+
+        rvProdukTerbaru.adapter = AdapterProduk(arrProdukTerbaru)
+        rvProdukTerbaru.layoutManager = layoutManager2
+
+        rvProdukElektronik.adapter = AdapterProduk(arrProdukElektronik)
+        rvProdukElektronik.layoutManager = layoutManager3
 
         return view
     }
 
-    val arrProduk : ArrayList<Produk>get(){
+    val arrProdukTerbaru : ArrayList<Produk>get(){
+        val arr = ArrayList<Produk>()
+        val p1 = Produk()
+        p1.nama = "Hp Realme C3"
+        p1.harga = "Rp.2.000.000"
+        p1.gambar = R.drawable.hp_14_bs749tu
+
+        val p2 = Produk()
+        p2.nama = "Hp Realme C3"
+        p2.harga = "Rp.2.000.000"
+        p2.gambar = R.drawable.hp_14_bs749tu
+
+        val p3 = Produk()
+        p3.nama = "Hp Realme C3"
+        p3.harga = "Rp.2.000.000"
+        p3.gambar = R.drawable.hp_14_bs749tu
+
+        arr.add(p1)
+        arr.add(p2)
+        arr.add(p3)
+
+        return arr
+    }
+
+    val arrProdukTerlaris : ArrayList<Produk>get(){
+        val arr = ArrayList<Produk>()
+        val p1 = Produk()
+        p1.nama = "Hp Realme C3"
+        p1.harga = "Rp.2.000.000"
+        p1.gambar = R.drawable.hp_14_bs749tu
+
+        val p2 = Produk()
+        p2.nama = "Hp Realme C3"
+        p2.harga = "Rp.2.000.000"
+        p2.gambar = R.drawable.hp_14_bs749tu
+
+        val p3 = Produk()
+        p3.nama = "Hp Realme C3"
+        p3.harga = "Rp.2.000.000"
+        p3.gambar = R.drawable.hp_14_bs749tu
+
+        arr.add(p1)
+        arr.add(p2)
+        arr.add(p3)
+
+        return arr
+    }
+
+    val arrProdukElektronik : ArrayList<Produk>get(){
         val arr = ArrayList<Produk>()
         val p1 = Produk()
         p1.nama = "Hp Realme C3"

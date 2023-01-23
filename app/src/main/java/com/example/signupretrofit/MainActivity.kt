@@ -1,5 +1,7 @@
 package com.example.signupretrofit
 
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +13,8 @@ import com.example.signupretrofit.databinding.ActivityMainBinding
 import com.example.signupretrofit.fragment.HomeFragment
 import com.example.signupretrofit.fragment.ProfileFragment
 import com.example.signupretrofit.fragment.ShopFragment
+import com.example.signupretrofit.helper.SharedPref
+import com.example.signupretrofit.view.LoginActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -25,12 +29,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var menuItem: MenuItem
     private lateinit var bottomNavigationView: BottomNavigationView
 
+    private var statusLogin = false
+    private lateinit var sp: SharedPref
+
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sp = SharedPref(this)
         setUpBottomNav()
     }
 
@@ -56,7 +64,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.navigation_profile -> {
-                    callFragment(2, fragmentProfile)
+                    if (sp.getStatusLogin()){
+                        callFragment(2, fragmentProfile)
+                    }else {
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    }
                 }
             }
             false

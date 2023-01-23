@@ -28,6 +28,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btn_to_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/purple_700"
@@ -35,6 +36,7 @@
             android:textColor="@color/white" />
 
         <Button
+            android:id="@+id/btn_to_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Daftar" />
